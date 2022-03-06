@@ -1,0 +1,32 @@
+
+# query specific client by id
+query{
+  client(id:3) {
+    id
+    name
+    phone
+  }
+}
+
+# query all products with some fields
+query{
+  allProducts{
+    id
+    name
+    stock
+  }
+}
+
+# query all sales with details
+query{
+  allSales{
+    id
+    total
+    details {
+      id
+      quantity
+      price
+      amount
+    }
+  }
+}

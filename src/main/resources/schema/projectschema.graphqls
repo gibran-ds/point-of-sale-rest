@@ -1,14 +1,37 @@
-schema {
-    query: Query
-}
-
 type Query {
     allClients: [Client]
     client(id: Int): Client
+    allProducts: [Product]
+    product(id: Int): Product
+    allSales: [Sale]
+    sale(id: Int): Sale
+    allSalesDetails: [SaleDetail]
+    saleDetail(id: Int): SaleDetail
 }
 
 type Client {
     id: Int
     name: String
     phone: String
+}
+
+type Product {
+    id: Int
+    name: String
+    price: Float
+    stock: Int
+}
+
+type Sale {
+    id: Int
+    total: Float
+    date: String
+    details: [SaleDetail]
+}
+
+type SaleDetail {
+    id: Int
+    quantity: Int
+    price: Float
+    amount: Float
 }

@@ -1,7 +1,7 @@
 package edu.itson.posweb.controllers;
 
-import edu.itson.posweb.daos.interfaces.IProductsDao;
 import edu.itson.posweb.entities.Product;
+import edu.itson.posweb.services.interfaces.IProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +13,11 @@ import java.util.List;
 public class ProductsController {
 
     @Autowired
-    private IProductsDao productsDao;
+    private IProductsService productsService;
 
     @RequestMapping(value = "product/{id}", method = RequestMethod.GET)
     public Product getProduct(@PathVariable Long id){
-        Product product = this.productsDao.get(id);
+        Product product = this.productsService.get(id);
         if(product == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
@@ -26,13 +26,13 @@ public class ProductsController {
 
     @RequestMapping(value = "product", method = RequestMethod.GET)
     public List<Product> getProducts(){
-        List<Product> products = this.productsDao.getAll();
+        List<Product> products = this.productsService.getAll();
         return products;
     }
 
     @RequestMapping(value = "product", method = RequestMethod.POST)
     public Product createProduct(@RequestBody Product product){
-        Product productCreated = this.productsDao.create(product);
+        Product productCreated = this.productsService.create(product);
         if(product == null){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
@@ -41,7 +41,7 @@ public class ProductsController {
 
     @RequestMapping(value = "product", method = RequestMethod.PATCH)
     public Product updateProduct(@RequestBody Product product){
-        Product productUpdated = this.productsDao.update(product);
+        Product productUpdated = this.productsService.update(product);
         if(product == null){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
@@ -50,7 +50,7 @@ public class ProductsController {
 
     @RequestMapping(value = "product/{id}", method = RequestMethod.DELETE)
     public Product deleteProduct(@PathVariable Long id){
-        Product product = this.productsDao.delete(id);
+        Product product = this.productsService.delete(id);
         if(product == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
