@@ -5,6 +5,4 @@ To Run, I highly recommend you to install IntelliJ Idea Community Edition. It in
 
 Before run, you need to install JDK, Java IDE, Postman (if you want to test REST API) and MySQL Server with default configurations.
 
-After MySQL installation you can run the point-of-sale.sql database script included in the root. 
-
-Also you can find a Postman collection with REST-API requests and GraphQL queries examples.
+After MySQL installation you can run the point-of-sale.sql database script included in the root. Also you can find a Postman collection with REST-API requests and GraphQL queries examples. These files are in the 'test-resources' folder.
