@@ -1,5 +1,6 @@
 package edu.itson.posweb.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
